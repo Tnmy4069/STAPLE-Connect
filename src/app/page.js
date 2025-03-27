@@ -57,13 +57,13 @@ export default function Home() {
   
         <input type="text" placeholder="Contact Person (e.g. HR - Rakesh Patil)" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.contactPerson} onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })} />
   
-        <input type="text" placeholder="Contact Phone *" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.contactPhone} onChange={(e) => setFormData({ ...formData, contactPhone: e.target.value })} required />
+        <input type="text" placeholder="Contact Person Phone *" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.contactPhone} onChange={(e) => setFormData({ ...formData, contactPhone: e.target.value })} required />
   
-        <input type="email" placeholder="Contact Email" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.contactEmail} onChange={(e) => setFormData({ ...formData, contactEmail: e.target.value })} />
+        <input type="email" placeholder="Contact Person Email" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.contactEmail} onChange={(e) => setFormData({ ...formData, contactEmail: e.target.value })} />
   
-        <input type="text" placeholder="Present/Previous Openings" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.openings} onChange={(e) => setFormData({ ...formData, openings: e.target.value })} />
+        <textarea type="text" placeholder="Present/Previous Openings" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.openings} onChange={(e) => setFormData({ ...formData, openings: e.target.value })} />
   
-        <input type="text" placeholder="Additional Remarks" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.remarks} onChange={(e) => setFormData({ ...formData, remarks: e.target.value })} />
+        <textarea type="text" placeholder="Additional Remarks" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.remarks} onChange={(e) => setFormData({ ...formData, remarks: e.target.value })} />
   
         <input type="text" placeholder="STAPLE Member Name" className="w-full p-2 mb-2 border border-gray-600 rounded bg-gray-700 text-white" value={formData.stapleMember} onChange={(e) => setFormData({ ...formData, stapleMember: e.target.value })} />
   
