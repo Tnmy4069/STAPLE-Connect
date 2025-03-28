@@ -74,6 +74,8 @@ export default function Home() {
       STAPLE Industry Connect
     </h1>
 
+  
+
     {message && (
       <p className="text-center bg-green-500 text-white py-2 px-4 rounded-lg shadow-md transition-all">
         {message}
@@ -88,6 +90,8 @@ export default function Home() {
       <h2 className="text-xl font-bold text-center mb-4">
         {editingId ? "✏️ Edit Company" : "➕ Add Company"}
       </h2>
+
+      <p className="text-lg text-center mb-4 text-amber-500">Before adding check if company data is already added or not.. to avoid duplicate entries</p>
 
       <div className="grid grid-cols-2 gap-4">
 
