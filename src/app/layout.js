@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <Header />
 
         {/* Main Content */}
-        <main className="p-6">{children}</main>
+        <main className="ll">{children}</main>
 
         {/* Footer (Uncomment when needed) */}
         <div>
