@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header"; // Import the Header component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,18 +12,22 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "STAPLE Industry Connect",
-  description: "STAPLE Industry Connect form to record the data of openings"
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-white`}>
+        
+        {/* Header Component */}
+        <Header />
+
+        {/* Main Content */}
+        <main className="p-6">{children}</main>
+
+        {/* Footer (Uncomment when needed) */}
+        <div>
+        <p className='text-center'>Build With 💌 by <a className='text-blue-500' href='https://github.com/Tnmy4069/STAPLE-Connect'>Tnmy</a></p>
+    </div>
+      
       </body>
     </html>
   );

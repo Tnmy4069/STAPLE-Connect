@@ -146,7 +146,7 @@ export default function Home() {
     </form>
 
       {/* COMPANY LIST */}
-      <div className="mt-12 max-w-5xl mx-auto">
+      <div id="Companies" className="mt-12 max-w-5xl mx-auto">
         <h2 className="text-2xl font-bold mb-6">📋 Company List</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {companies.map((c) => (
