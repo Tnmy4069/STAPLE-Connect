@@ -8,6 +8,7 @@ export async function GET() {
   await connectDB();
   const companies = await Company.find({});
   return NextResponse.json(companies);
+  
 }
 
 // POST a new company
@@ -16,7 +17,6 @@ export async function POST(req) {
   const data = await req.json();
   const newCompany = await Company.create(data);
   return NextResponse.json(newCompany, { status: 201 });
-  alert("New company Added successfully");
 }
 
 // DELETE a company

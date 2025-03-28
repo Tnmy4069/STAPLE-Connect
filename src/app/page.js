@@ -22,6 +22,7 @@ export default function Home() {
   const fetchCompanies = async () => {
     const { data } = await axios.get("/api/companies");
     setCompanies(data);
+    console.log(data);
   };
 
   const handleSubmit = async (e) => {
@@ -67,12 +68,36 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll up when editing
   };
 
+ // Dashboard Data Calculations
+ const totalCompanies = companies.length;
+ const itCompanies = companies.filter(c => c.type.includes("IT")).length;
+ const nonItCompanies = totalCompanies - itCompanies;
+ const latestCompany = totalCompanies > 0 ? companies[totalCompanies - 1].name : "N/A";
+
+
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-6">
-    <h1 className="text-4xl font-extrabold text-center mb-6 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
-      STAPLE Industry Connect
-    </h1>
+   
+    {/* Mini Dashboard */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-4xl w-full">
+        <div className="bg-white/10 backdrop-blur-lg p-4 rounded-lg shadow-md text-center border border-white/20">
+          <h3 className="text-lg font-semibold">🏢 Total Companies</h3>
+          <p className="text-2xl font-bold">{totalCompanies}</p>
+        </div>
+        <div className="bg-white/10 backdrop-blur-lg p-4 rounded-lg shadow-md text-center border border-white/20">
+          <h3 className="text-lg font-semibold">💻 Software Companies</h3>
+          <p className="text-2xl font-bold">{itCompanies}</p>
+        </div>
+        <div className="bg-white/10 backdrop-blur-lg p-4 rounded-lg shadow-md text-center border border-white/20">
+          <h3 className="text-lg font-semibold">🏗️ Hardware Companies</h3>
+          <p className="text-2xl font-bold">{nonItCompanies}</p>
+        </div>
+        <div className="bg-white/10 backdrop-blur-lg p-4 rounded-lg shadow-md text-center border border-white/20">
+          <h3 className="text-lg font-semibold">🆕 Latest Added</h3>
+          <p className="text-lg font-bold text-amber-300">{latestCompany}</p>
+        </div>
+      </div>
 
   
 
@@ -151,14 +176,14 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {companies.map((c) => (
             <div key={c._id} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
-              <h3 className="text-lg font-semibold mb-2">{c.name} - {c.type}</h3>
+              <h3 className="text-lg font-semibold mb-2" > {c.name} - {c.type}</h3>
               <p className="text-sm text-gray-400">📧 {c.email}</p>
               {c.website && <p className="text-sm text-blue-400">🌍 <a href={c.website} target="_blank" rel="noopener noreferrer">{c.website}</a></p>}
               {c.linkedin && <p className="text-sm text-blue-400">🔗 <a href={c.linkedin} target="_blank" rel="noopener noreferrer">{c.linkedin}</a></p>}
               
               <p className="mt-2 text-sm"><strong>👤 Contact:</strong> {c.contactPerson}</p>
               <p className="text-sm"><strong>📞 Phone:</strong> {c.contactPhone}</p>
-              <p className="text-sm"><strong>📧 Email:</strong> {c.contactEmail}</p>
+              <p className="text-sm"><strong>📧 Email:</strong> {c.contactEmail || "N/A"}</p>
 
               <p className="mt-2 text-sm"><strong>🔍 Openings:</strong> {c.openings || "N/A"}</p>
               <p className="text-sm"><strong>📝 Remarks:</strong> {c.remarks || "N/A"}</p>
