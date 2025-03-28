@@ -16,6 +16,7 @@ export async function POST(req) {
   const data = await req.json();
   const newCompany = await Company.create(data);
   return NextResponse.json(newCompany, { status: 201 });
+  alert("New company Added successfully");
 }
 
 // DELETE a company
@@ -24,4 +25,13 @@ export async function DELETE(req) {
   const { id } = await req.json();
   await Company.findByIdAndDelete(id);
   return NextResponse.json({ message: "Deleted Successfully" }, { status: 200 });
+}
+
+
+//EDIT a company
+export async function PUT(req) {
+  await connectDB();
+  const { id, ...data } = await req.json();
+  const updatedCompany = await Company.findByIdAndUpdate(id, data, { new: true });
+  return NextResponse.json(updatedCompany, { status: 200 });
 }
